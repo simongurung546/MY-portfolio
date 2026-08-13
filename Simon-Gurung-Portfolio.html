@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simon Gurung — Brand, UI/UX &amp; Motion Designer</title>
+<meta name="description" content="Portfolio of Simon Gurung — multidisciplinary designer working across brand identity, UI/UX, web, motion and digital product design. Based in Nawalparasi (West), Nepal.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ============ TOKENS ============ */
+:root{
+  --ink:#14161f;
+  --ink-2:#1b1e2b;
+  --ink-3:#242840;
+  --paper:#eef0ea;
+  --paper-2:#e1e4da;
+  --marigold:#e8a33d;
+  --marigold-deep:#c67f1f;
+  --indigo:#4a5da3;
+  --indigo-deep:#333f75;
+  --stone:#9a9c93;
+  --cream-ink:#2a2c26;
+  --line-dark:rgba(238,240,234,0.14);
+  --line-light:rgba(20,22,31,0.14);
+  --shadow:0 24px 60px -20px rgba(0,0,0,0.55);
+  --shadow-soft:0 14px 34px -18px rgba(0,0,0,0.35);
+  --radius:22px;
+  --radius-sm:10px;
+  --ff-display:'Bricolage Grotesque', 'Inter', sans-serif;
+  --ff-body:'Inter', -apple-system, sans-serif;
+  --ff-mono:'IBM Plex Mono', monospace;
+  --maxw:1180px;
+}
+
+*,*::before,*::after{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto;}
+  *,*::before,*::after{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important;}
+}
+body{
+  margin:0;
+  background:var(--ink);
+  color:var(--paper);
+  font-family:var(--ff-body);
+  font-size:16px;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img,svg{display:block;max-width:100%;}
+a{color:inherit;text-decoration:none;}
+h1,h2,h3,h4{font-family:var(--ff-display);margin:0;font-weight:700;letter-spacing:-0.01em;}
+p{margin:0;}
+ul{margin:0;padding:0;list-style:none;}
+button{font-family:inherit;cursor:pointer;}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
+@media (max-width:640px){.wrap{padding:0 20px;}}
+
+:focus-visible{outline:2px solid var(--marigold); outline-offset:3px;}
+
+.eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--ff-mono);font-size:12.5px;letter-spacing:0.08em;text-transform:uppercase;
+  color:var(--marigold);
+}
+.eyebrow::before{
+  content:'';width:16px;height:1px;background:var(--marigold);
+}
+.grid-ref{
+  font-family:var(--ff-mono);
+  font-size:11.5px;
+  letter-spacing:0.06em;
+  padding:4px 9px;
+  border:1px solid var(--line-dark);
+  border-radius:6px;
+  color:var(--stone);
+  display:inline-block;
+  transform:rotate(-1.2deg);
+}
+.on-paper .grid-ref{border-color:var(--line-light); color:var(--cream-ink); opacity:0.55;}
+
+/* ============ BG GRID SIGNATURE ============ */
+.grid-canvas{
+  position:fixed; inset:0; z-index:0; pointer-events:none;
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(238,240,234,0.09) 1px, transparent 1.6px);
+  background-size:34px 34px;
+  animation:driftGrid 40s linear infinite;
+  opacity:0.7;
+}
+@keyframes driftGrid{
+  0%{background-position:0 0;}
+  100%{background-position:340px 170px;}
+}
+
+/* ============ NAV ============ */
+header.site-nav{
+  position:sticky; top:0; z-index:50;
+  background:rgba(20,22,31,0.82);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line-dark);
+}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:16px 28px;max-width:var(--maxw);margin:0 auto;}
+.nav-mark{font-family:var(--ff-display);font-weight:800;font-size:19px;letter-spacing:-0.01em;}
+.nav-mark span{color:var(--marigold);}
+.nav-links{display:flex;gap:30px;align-items:center;}
+.nav-links a{
+  font-family:var(--ff-mono);font-size:12.5px;letter-spacing:0.05em;text-transform:uppercase;
+  color:var(--paper);opacity:0.75;transition:opacity .2s ease, color .2s ease;
+  position:relative;padding:4px 0;
+}
+.nav-links a:hover{opacity:1;color:var(--marigold);}
+.nav-cta{
+  font-family:var(--ff-mono);font-size:12.5px;letter-spacing:0.04em;
+  background:var(--marigold);color:var(--ink);
+  padding:9px 16px;border-radius:8px;font-weight:500;
+  transition:background .2s ease, transform .2s ease;
+}
+.nav-cta:hover{background:#f2b45c; transform:translateY(-1px);}
+.nav-toggle{display:none;background:none;border:1px solid var(--line-dark);border-radius:8px;padding:8px 10px;color:var(--paper);}
+.nav-toggle svg{width:18px;height:18px;}
+@media (max-width:820px){
+  .nav-links{position:fixed;top:64px;left:0;right:0;background:var(--ink-2);flex-direction:column;align-items:flex-start;gap:0;padding:8px 0;border-bottom:1px solid var(--line-dark);transform:translateY(-8px);opacity:0;pointer-events:none;transition:opacity .2s ease, transform .2s ease;}
+  .nav-links.open{opacity:1;pointer-events:auto;transform:translateY(0);}
+  .nav-links a, .nav-links a.nav-cta{width:100%;padding:14px 28px;border-radius:0;}
+  .nav-cta{margin-top:4px;}
+  .nav-toggle{display:inline-flex;}
+}
+
+/* ============ BUTTONS ============ */
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--ff-mono);font-size:13px;letter-spacing:0.04em;
+  padding:13px 22px;border-radius:9px;border:1px solid transparent;
+  transition:transform .2s ease, background .2s ease, border-color .2s ease;
+}
+.btn-primary{background:var(--marigold);color:var(--ink);}
+.btn-primary:hover{background:#f2b45c;transform:translateY(-2px);}
+.btn-ghost{border-color:var(--line-dark);color:var(--paper);}
+.btn-ghost:hover{border-color:var(--marigold);color:var(--marigold);transform:translateY(-2px);}
+
+/* ============ SECTION SPACING ============ */
+section{position:relative;z-index:1;padding:110px 0;}
+@media (max-width:720px){section{padding:74px 0;}}
+.section-head{max-width:640px;margin-bottom:56px;}
+.section-head h2{font-size:clamp(28px,4vw,42px);margin-top:14px;}
+.section-head p{margin-top:16px;color:var(--stone);font-size:16.5px;}
+
+/* ============ HERO ============ */
+.hero{padding-top:88px;padding-bottom:70px;}
+.hero-grid{display:grid;grid-template-columns:1.15fr 0.85fr;gap:40px;align-items:center;}
+.hero-name{font-size:clamp(48px,7.4vw,92px);line-height:0.98;margin-top:22px;}
+.hero-roles{position:relative;height:1.5em;overflow:hidden;margin:22px 0 20px;}
+.hero-roles ul{position:relative;height:100%;}
+.hero-roles li{
+  position:absolute;top:0;left:0;
+  font-family:var(--ff-mono);font-size:clamp(15px,2vw,19px);color:var(--marigold);
+  opacity:0; transform:translateY(8px);
+  animation:roleCycle 10s infinite;
+}
+.hero-roles li:nth-child(1){animation-delay:0s;}
+.hero-roles li:nth-child(2){animation-delay:2s;}
+.hero-roles li:nth-child(3){animation-delay:4s;}
+.hero-roles li:nth-child(4){animation-delay:6s;}
+.hero-roles li:nth-child(5){animation-delay:8s;}
+@keyframes roleCycle{
+  0%,100%{opacity:0; transform:translateY(8px);}
+  4%,16%{opacity:1; transform:translateY(0);}
+  20%{opacity:0; transform:translateY(-8px);}
+}
+.hero-tag{max-width:480px;color:var(--stone);font-size:17px;}
+.hero-cta{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap;}
+.hero-pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:38px;}
+.hero-pills li{
+  font-family:var(--ff-mono);font-size:12px;letter-spacing:0.05em;text-transform:uppercase;
+  border:1px solid var(--line-dark);padding:7px 13px;border-radius:20px;color:var(--stone);
+}
+.hero-mark{max-width:360px;margin:0 auto;}
+@media (max-width:900px){
+  .hero-grid{grid-template-columns:1fr;}
+  .hero-mark{max-width:240px;order:-1;}
+}
+
+/* ============ PAPER PANEL (shared) ============ */
+.paper-panel{
+  background:var(--paper); color:var(--cream-ink);
+  border-radius:var(--radius); padding:44px;
+  box-shadow:var(--shadow-soft);
+}
+.paper-panel .eyebrow, .paper-panel .grid-ref{color:var(--marigold-deep);}
+.paper-panel .grid-ref{border-color:var(--line-light); color:var(--marigold-deep); opacity:1;}
+.paper-panel .eyebrow::before{background:var(--marigold-deep);}
+.paper-panel h2, .paper-panel h3, .paper-panel h4{color:var(--cream-ink);}
+.paper-panel p{color:#4b4d43;}
+
+/* ============ ABOUT ============ */
+.about-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:26px;align-items:stretch;}
+.about-bio h2{font-size:clamp(26px,3.4vw,36px);margin:16px 0 20px;line-height:1.12;}
+.about-bio p{margin-top:14px;font-size:15.5px;line-height:1.65;}
+.about-facts dl{margin-top:20px;display:flex;flex-direction:column;gap:16px;}
+.about-facts dl > div{padding-bottom:14px;border-bottom:1px solid var(--line-light);}
+.about-facts dl > div:last-child{border-bottom:none;padding-bottom:0;}
+.about-facts dt{font-family:var(--ff-mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--marigold-deep);margin-bottom:4px;}
+.about-facts dd{margin:0;font-size:15px;font-weight:500;color:var(--cream-ink);}
+@media (max-width:820px){.about-grid{grid-template-columns:1fr;}}
+@media (max-width:640px){.paper-panel{padding:30px 24px;}}
+
+/* ============ WORK ============ */
+.work-list{display:flex;flex-direction:column;gap:30px;}
+.project-card{padding:38px;}
+.project-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px;}
+.project-cat{font-family:var(--ff-mono);font-size:11.5px;letter-spacing:0.08em;text-transform:uppercase;color:#6b6d61;}
+.project-card h3{font-size:clamp(22px,3vw,30px);line-height:1.15;margin-bottom:10px;}
+.project-sum{color:#585a4e;font-size:15.5px;max-width:640px;}
+.meta-row{display:flex;flex-wrap:wrap;gap:26px;margin:22px 0 28px;padding:18px 0;border-top:1px solid var(--line-light);border-bottom:1px solid var(--line-light);}
+.meta-row li{display:flex;flex-direction:column;gap:4px;}
+.meta-row li span{font-family:var(--ff-mono);font-size:10.5px;letter-spacing:0.08em;text-transform:uppercase;color:var(--marigold-deep);}
+.meta-row li b{font-weight:600;font-size:14px;color:var(--cream-ink);}
+
+.project-visual{margin-bottom:8px;}
+.deliverable-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+@media (max-width:900px){.deliverable-grid{grid-template-columns:repeat(2,1fr);}}
+.tile{
+  background:var(--ink); border-radius:14px; padding:18px;
+  min-height:168px; display:flex; flex-direction:column; justify-content:space-between;
+  border:1px solid rgba(20,22,31,0.06);
+}
+.tile-label{font-family:var(--ff-mono);font-size:10px;letter-spacing:0.07em;text-transform:uppercase;color:var(--stone);}
+
+details.case-study{margin-top:26px;border-top:1px solid var(--line-light);padding-top:18px;}
+details.case-study summary{
+  cursor:pointer; list-style:none; font-family:var(--ff-mono); font-size:12.5px;
+  letter-spacing:0.05em; text-transform:uppercase; color:var(--marigold-deep); font-weight:500;
+  display:flex; align-items:center; gap:8px; user-select:none;
+}
+details.case-study summary::-webkit-details-marker{display:none;}
+details.case-study summary::after{content:'+';font-size:16px;line-height:1;margin-left:2px;transition:transform .2s ease;}
+details.case-study[open] summary::after{transform:rotate(45deg);}
+.case-body{margin-top:20px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+@media (max-width:820px){.case-body{grid-template-columns:1fr;}}
+.case-body h4{font-family:var(--ff-mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--marigold-deep);margin-bottom:8px;}
+.case-body p{font-size:14.5px;color:#4b4d43;line-height:1.65;}
+
+/* -- A1 Kholaghar brand tiles -- */
+.kh-mark-tile{align-items:center;}
+.swatch-col{display:flex;flex-direction:column;gap:5px;margin-top:8px;}
+.swatch{
+  border-radius:5px;padding:5px 8px;font-family:var(--ff-mono);font-size:10.5px;color:#F1E7DA;
+  display:flex;justify-content:space-between;align-items:center;
+}
+.swatch em{font-style:normal;opacity:0.75;}
+.type-specimen{font-size:44px;color:#F1E7DA;line-height:1;margin:6px 0;}
+.bag-mock{
+  position:relative;margin:auto;width:78%;height:110px;
+  background:linear-gradient(180deg,#6F4E37,#3C2A21);
+  border-radius:6px 6px 16px 16px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;
+}
+.bag-fold{position:absolute;top:0;left:0;right:0;height:14px;background:#3C2A21;border-radius:6px 6px 0 0;}
+.bag-word{font-family:var(--ff-mono);color:#F1E7DA;font-size:11px;letter-spacing:0.12em;margin-top:8px;}
+.bag-sub{font-family:var(--ff-mono);color:#B08463;font-size:8px;letter-spacing:0.1em;}
+
+/* -- B2 Yatra UI tiles -- */
+.phone-row{display:flex;gap:18px;flex-wrap:wrap;justify-content:center;margin-bottom:22px;}
+.phone-frame{
+  width:150px;background:#0d0e14;border-radius:22px;padding:9px;
+  box-shadow:0 14px 30px -14px rgba(0,0,0,0.5);
+}
+.phone-screen{background:var(--ink-2);border-radius:14px;padding:12px 11px;min-height:250px;display:flex;flex-direction:column;gap:8px;}
+.ph-topbar{font-family:var(--ff-mono);font-size:9.5px;letter-spacing:0.12em;color:var(--marigold);text-align:center;margin-bottom:2px;}
+.ph-field{background:rgba(238,240,234,0.06);border:1px solid var(--line-dark);border-radius:8px;padding:8px 9px;font-size:11px;color:var(--paper);}
+.ph-field-alt{color:var(--stone);}
+.ph-field-sm{font-family:var(--ff-mono);font-size:9px;color:var(--stone);background:transparent;border:none;padding:0 2px;}
+.ph-btn{margin-top:auto;background:var(--marigold);color:var(--ink);text-align:center;padding:9px;border-radius:8px;font-size:11px;font-weight:600;font-family:var(--ff-mono);}
+.ph-caption{position:absolute;}
+.phone-frame .ph-caption{position:static;text-align:center;font-family:var(--ff-mono);font-size:9px;letter-spacing:0.08em;text-transform:uppercase;color:var(--stone);margin-top:2px;}
+.seat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;padding:6px 2px;}
+.seat{aspect-ratio:1;border-radius:4px;background:rgba(238,240,234,0.12);}
+.seat.selected{background:var(--marigold);}
+.seat.booked{background:rgba(238,240,234,0.04);}
+.ticket-stub{background:rgba(238,240,234,0.05);border:1px solid var(--line-dark);border-radius:10px;padding:10px;display:flex;flex-direction:column;gap:6px;}
+.ticket-route{font-family:var(--ff-mono);color:var(--marigold);font-size:12px;letter-spacing:0.06em;}
+.ticket-row{display:flex;justify-content:space-between;font-size:10.5px;color:var(--stone);}
+.ticket-row b{color:var(--paper);}
+.ticket-dash{border-top:1px dashed var(--line-dark);margin:4px 0;}
+.qr-mock{
+  align-self:center;width:52px;height:52px;border-radius:4px;
+  background-image:radial-gradient(rgba(238,240,234,0.7) 1.4px, transparent 1.6px);
+  background-size:6px 6px; background-color:rgba(238,240,234,0.06);
+}
+.flow-diagram{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px;}
+.flow-step{
+  font-family:var(--ff-mono);font-size:11.5px;color:var(--cream-ink);
+  background:var(--paper-2);border:1px solid var(--line-light);border-radius:20px;padding:8px 15px;
+}
+.flow-arrow{color:var(--marigold-deep);font-size:14px;}
+
+/* -- C3 website redesign compare -- */
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+@media (max-width:760px){.compare-grid{grid-template-columns:1fr;}}
+.compare-panel{background:var(--ink);border-radius:14px;padding:12px;border:1px solid rgba(20,22,31,0.06);}
+.compare-label{font-family:var(--ff-mono);font-size:10.5px;letter-spacing:0.08em;text-transform:uppercase;color:var(--stone);margin-bottom:8px;}
+.browser-chrome{display:flex;gap:5px;padding:0 2px 8px;}
+.browser-chrome span{width:7px;height:7px;border-radius:50%;background:rgba(238,240,234,0.15);}
+.mock-page{border-radius:8px;overflow:hidden;background:var(--ink-2);padding:10px;min-height:210px;}
+.mp-nav-before{font-family:Georgia,serif;font-size:8px;letter-spacing:0;color:#9ea0c9;background:#20233a;padding:6px 5px;margin-bottom:6px;line-height:1.6;}
+.mp-banner-before{font-family:Georgia,serif;font-weight:700;font-size:13px;text-align:center;color:#c7c9e6;background:#282c47;padding:14px 4px;margin-bottom:6px;}
+.mp-block-before{height:20px;background:rgba(238,240,234,0.06);margin-bottom:5px;border-radius:2px;}
+.mp-block-before.short{width:60%;}
+.mp-nav-after{display:flex;justify-content:space-between;align-items:center;font-family:var(--ff-mono);font-size:9px;color:var(--paper);padding:4px 2px 12px;letter-spacing:0.04em;}
+.mp-nav-after span:first-child{font-weight:700;color:var(--marigold);}
+.mp-nav-after span:last-child{color:var(--stone);}
+.mp-hero-after{padding:6px 2px 16px;}
+.mp-hero-line{height:12px;width:80%;background:rgba(238,240,234,0.16);border-radius:3px;margin-bottom:7px;}
+.mp-hero-line.short{width:45%;background:rgba(238,240,234,0.08);}
+.mp-hero-btn{margin-top:10px;display:inline-block;background:var(--indigo);color:#fff;font-family:var(--ff-mono);font-size:9.5px;padding:7px 12px;border-radius:6px;}
+.mp-cards-after{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;}
+.mp-card-after{height:44px;border-radius:6px;background:rgba(74,93,163,0.18);border:1px solid rgba(74,93,163,0.35);}
+
+/* -- D4 motion demo -- */
+.motion-demo{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  background:var(--ink);border-radius:16px;padding:26px 20px;margin-bottom:18px;
+}
+.mo-ring{stroke-dasharray:340;stroke-dashoffset:340;animation:moRing 4s ease-in-out infinite;}
+.mo-bean{stroke-dasharray:340;stroke-dashoffset:340;animation:moDraw 4s ease-in-out infinite;}
+.mo-river{stroke-dasharray:80;stroke-dashoffset:80;animation:moRiver 4s ease-in-out infinite;}
+.mo-word{
+  font-family:var(--ff-mono);font-size:12px;letter-spacing:0.18em;color:#F1E7DA;
+  margin-top:10px;opacity:0;animation:moWord 4s ease-in-out infinite;
+}
+@keyframes moRing{0%{stroke-dashoffset:340;}30%{stroke-dashoffset:0;}85%{stroke-dashoffset:0;}100%{stroke-dashoffset:340;}}
+@keyframes moDraw{0%{stroke-dashoffset:340;}15%{stroke-dashoffset:340;}55%{stroke-dashoffset:0;}85%{stroke-dashoffset:0;}100%{stroke-dashoffset:-340;}}
+@keyframes moRiver{0%{stroke-dashoffset:80;}45%{stroke-dashoffset:80;}65%{stroke-dashoffset:0;}85%{stroke-dashoffset:0;}100%{stroke-dashoffset:-80;}}
+@keyframes moWord{0%,60%{opacity:0;transform:translateY(4px);}75%,90%{opacity:1;transform:translateY(0);}100%{opacity:0;}}
+
+.storyboard-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;}
+@media (max-width:760px){.storyboard-grid{grid-template-columns:repeat(3,1fr);}}
+.frame{background:var(--ink);border-radius:10px;padding:9px;}
+.frame-num{font-family:var(--ff-mono);font-size:9px;color:var(--stone);}
+.frame-art{height:52px;border-radius:6px;margin:6px 0;background:#20233a;}
+.fa-1{background:radial-gradient(circle,#3C2A21 0%,#14161f 70%);}
+.fa-2{background:#20233a;border:1px dashed #B08463;}
+.fa-3{background:#20233a;background-image:linear-gradient(0deg,transparent 60%,#F1E7DA33 60%,#F1E7DA33 68%,transparent 68%);}
+.fa-4{background:linear-gradient(90deg,#3C2A21,#7C8B6F,#B08463);}
+.fa-5{background:linear-gradient(180deg,#6F4E37,#3C2A21);position:relative;}
+.fa-6{background:#14161f;border:1px solid #B08463;display:flex;align-items:center;justify-content:center;}
+.frame p{font-size:10.5px;color:#5c5e51;line-height:1.4;margin-top:2px;}
+
+/* -- E5 Paisa dashboard -- */
+.dash-mock{display:grid;grid-template-columns:1.6fr 1fr;gap:16px;}
+@media (max-width:760px){.dash-mock{grid-template-columns:1fr;}}
+.dash-col{display:flex;flex-direction:column;gap:16px;}
+.dash-card{background:var(--ink);border-radius:14px;padding:16px;}
+.bar-chart{width:100%;height:84px;margin-top:10px;}
+.bar-chart rect{fill:rgba(74,93,163,0.55);}
+.bar-chart rect.bar-hi{fill:var(--marigold);}
+.progress-row{display:grid;grid-template-columns:70px 1fr 34px;align-items:center;gap:10px;margin-top:12px;font-size:11px;color:var(--stone);}
+.progress-row:first-of-type{margin-top:14px;}
+.progress-track{height:6px;background:rgba(238,240,234,0.08);border-radius:4px;overflow:hidden;}
+.progress-fill{height:100%;background:var(--indigo);border-radius:4px;}
+.progress-fill.over{background:#c26a4d;}
+.progress-fill.good{background:#7C8B6F;}
+.progress-row em{font-style:normal;text-align:right;color:var(--paper);}
+.dash-donut-card{display:flex;flex-direction:column;align-items:center;}
+.donut{width:120px;height:120px;margin:12px 0;}
+.legend{display:flex;flex-direction:column;gap:6px;align-self:stretch;}
+.legend li{display:flex;align-items:center;gap:8px;font-size:11px;color:var(--stone);}
+.legend li span{width:8px;height:8px;border-radius:50%;display:inline-block;}
+
+/* ============ SKILLS ============ */
+.skills-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+@media (max-width:900px){.skills-grid{grid-template-columns:repeat(2,1fr);}}
+@media (max-width:520px){.skills-grid{grid-template-columns:1fr;}}
+.skill-col{padding:28px 24px;}
+.skill-col h3{font-size:19px;margin:14px 0 16px;}
+.skill-col ul{display:flex;flex-direction:column;gap:9px;}
+.skill-col li{font-size:13.5px;color:#4b4d43;padding-left:14px;position:relative;}
+.skill-col li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:50%;background:var(--marigold-deep);}
+.tools-row{display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-top:36px;padding-top:30px;border-top:1px solid var(--line-dark);}
+.tools-label{font-family:var(--ff-mono);font-size:11.5px;letter-spacing:0.08em;text-transform:uppercase;color:var(--stone);}
+.tools-pills{display:flex;flex-wrap:wrap;gap:10px;}
+.tools-pills li{font-family:var(--ff-mono);font-size:12px;color:var(--paper);border:1px solid var(--line-dark);border-radius:20px;padding:7px 14px;}
+
+/* ============ CONTACT ============ */
+.contact-panel{padding:64px;text-align:left;}
+@media (max-width:640px){.contact-panel{padding:36px 26px;}}
+.contact-panel h2{font-size:clamp(28px,4.2vw,44px);margin:16px 0 14px;line-height:1.08;}
+.contact-panel > p{color:#585a4e;font-size:16px;max-width:520px;}
+.contact-panel .btn-primary{background:var(--ink);color:var(--paper);}
+.contact-panel .btn-primary:hover{background:var(--ink-3);}
+.contact-actions{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:30px;}
+.contact-email{font-family:var(--ff-mono);font-size:13px;color:#6b6d61;}
+.social-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px;}
+.social-row li span{
+  font-family:var(--ff-mono);font-size:11.5px;letter-spacing:0.05em;text-transform:uppercase;
+  border:1px solid var(--line-light);border-radius:20px;padding:7px 14px;color:#6b6d61;display:inline-block;
+}
+.contact-note{margin-top:22px;font-family:var(--ff-mono);font-size:11.5px;color:#8b8d80;max-width:460px;}
+
+/* ============ FOOTER ============ */
+.site-footer{padding:34px 0;border-top:1px solid var(--line-dark);position:relative;z-index:1;}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;font-family:var(--ff-mono);font-size:12px;color:var(--stone);}
+.footer-top{color:var(--stone);transition:color .2s ease;}
+.footer-top:hover{color:var(--marigold);}
+
+</style>
+</head>
+<body>
+<div class="grid-canvas" aria-hidden="true"></div>
+
+<header class="site-nav">
+  <div class="nav-inner">
+    <a href="#top" class="nav-mark">SIMON<span>·</span>GURUNG</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <nav class="nav-links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#work">Work</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact" class="nav-cta">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section id="top" class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow">Grid ref C7 · Nawalparasi (West), Parasi, Nepal</p>
+      <h1 class="hero-name">Simon<br>Gurung</h1>
+      <div class="hero-roles" aria-hidden="true">
+        <ul>
+          <li>Brand identity</li>
+          <li>UI / UX design</li>
+          <li>Website design</li>
+          <li>Motion graphics</li>
+          <li>Digital product</li>
+        </ul>
+      </div>
+      <p class="hero-tag">I design visual systems that hold together across brand, screen and motion — from a first pencil sketch to a shipped product.</p>
+      <div class="hero-cta">
+        <a href="#work" class="btn btn-primary">View selected work →</a>
+        <a href="#contact" class="btn btn-ghost">Get in touch</a>
+      </div>
+      <ul class="hero-pills">
+        <li>Brand</li><li>UI/UX</li><li>Web</li><li>Motion</li><li>Product</li>
+      </ul>
+    </div>
+    <div class="hero-mark" aria-hidden="true">
+      <svg viewBox="0 0 320 320" role="img" aria-label="SG monogram mark">
+        <circle cx="160" cy="160" r="142" fill="none" stroke="var(--marigold)" stroke-width="1.2" opacity="0.4"/>
+        <circle cx="160" cy="160" r="108" fill="none" stroke="var(--indigo)" stroke-width="1" opacity="0.5" stroke-dasharray="2 6"/>
+        <g opacity="0.5">
+          <circle cx="160" cy="30" r="2" fill="var(--marigold)"/>
+          <circle cx="160" cy="290" r="2" fill="var(--marigold)"/>
+          <circle cx="30" cy="160" r="2" fill="var(--marigold)"/>
+          <circle cx="290" cy="160" r="2" fill="var(--marigold)"/>
+        </g>
+        <path d="M60 210 L120 130 L155 175 L195 105 L260 210 Z" fill="none" stroke="var(--paper)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" opacity="0.85"/>
+        <text x="160" y="168" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="15" letter-spacing="4" fill="var(--paper)" opacity="0.55">SIMON GURUNG</text>
+      </svg>
+    </div>
+  </div>
+</section>
+<section id="about">
+  <div class="wrap about-grid">
+    <div class="paper-panel about-bio">
+      <span class="grid-ref">A0 · About</span>
+      <h2>Designing systems,<br>not one-offs.</h2>
+      <p>Simon Gurung is a multidisciplinary designer based in Nawalparasi (West), Parasi — working across brand identity, UI/UX, web and motion. He treats every deliverable, a wordmark, a screen, a two‑second animation, as part of one connected system rather than a one‑off file.</p>
+      <p>A graduate of Mahakavi Devkota Campus, Simon's practice moves between disciplines on purpose: brand decisions inform interface decisions, interface decisions inform motion, and motion feeds back into how the brand feels in someone's hand. This portfolio collects five recent studies across that range.</p>
+    </div>
+    <div class="paper-panel about-facts">
+      <span class="grid-ref">Matrix</span>
+      <dl>
+        <div><dt>Based</dt><dd>Nawalparasi (West), Parasi, Nepal</dd></div>
+        <div><dt>Education</dt><dd>Mahakavi Devkota Campus</dd></div>
+        <div><dt>Born</dt><dd>19 June 2002</dd></div>
+        <div><dt>Focus</dt><dd>Brand · UI/UX · Web · Motion · Product</dd></div>
+        <div><dt>Status</dt><dd>Open to select freelance &amp; full‑time roles</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+<section id="work">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Selected Work</span>
+      <h2>Five studies, one system.</h2>
+      <p>Every project here spans strategy through execution. Open any card for the full case study — challenge, approach and outcome.</p>
+    </div>
+    <div class="work-list">
+      <article class="project-card paper-panel" id="brand-identity">
+  <div class="project-top">
+    <span class="grid-ref">A1</span>
+    <span class="project-cat">Brand Identity</span>
+  </div>
+  <h3>Kholaghar Coffee — Brand Identity</h3>
+  <p class="project-sum">A full identity system for a small-batch coffee roastery sourcing beans from the hills of Nepal — mark, palette, type and packaging built to work from a cup sleeve to an export crate.</p>
+  <ul class="meta-row">
+    <li><span>Role</span><b>Brand &amp; Identity Designer</b></li>
+    <li><span>Deliverables</span><b>Logo, colour system, type, packaging</b></li>
+    <li><span>Year</span><b>2025</b></li>
+  </ul>
+
+  <div class="project-visual">
+    <div class="deliverable-grid kh-scope">
+      <div class="tile kh-mark-tile">
+        <span class="tile-label">Mark</span>
+        <svg viewBox="0 0 120 120" width="72" height="72" style="align-self:center;">
+          <circle cx="60" cy="60" r="52" fill="none" stroke="#B08463" stroke-width="1.5" opacity="0.5"/>
+          <path d="M60 16 C86 30 92 60 78 84 C70 98 50 98 42 84 C28 60 34 30 60 16 Z" fill="none" stroke="#F1E7DA" stroke-width="2.5"/>
+          <path d="M32 60 C46 52 74 68 88 60" fill="none" stroke="#7C8B6F" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <span class="tile-label" style="text-align:center;">Kholaghar</span>
+      </div>
+      <div class="tile kh-palette-tile">
+        <span class="tile-label">Palette</span>
+        <div class="swatch-col">
+          <div class="swatch" style="background:#3C2A21;">Espresso <em>#3C2A21</em></div>
+          <div class="swatch" style="background:#6F4E37;">Roast <em>#6F4E37</em></div>
+          <div class="swatch" style="background:#B08463; color:#2a1d16;">Latte <em>#B08463</em></div>
+          <div class="swatch" style="background:#7C8B6F; color:#1e2419;">Leaf <em>#7C8B6F</em></div>
+          <div class="swatch" style="background:#F1E7DA; color:#2a1d16;">Paper <em>#F1E7DA</em></div>
+        </div>
+      </div>
+      <div class="tile kh-type-tile">
+        <span class="tile-label">Type</span>
+        <div class="type-specimen" style="font-family:Georgia, 'Times New Roman', serif;">Aa</div>
+        <div>
+          <span class="tile-label">Display — warm serif</span><br>
+          <span class="tile-label">Body — grotesk sans</span>
+        </div>
+      </div>
+      <div class="tile kh-pack-tile">
+        <span class="tile-label">Packaging</span>
+        <div class="bag-mock">
+          <span class="bag-fold"></span>
+          <span class="bag-word">KHOLAGHAR</span>
+          <span class="bag-sub">RIVERSIDE ROAST</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <details class="case-study">
+    <summary>View full case study</summary>
+    <div class="case-body">
+      <div>
+        <h4>Challenge</h4>
+        <p>Kholaghar sources beans from small hill farms and roasts in small batches, but the original identity looked like a generic café sticker. It needed to read as premium on an export crate and still feel handmade on a single cup sleeve.</p>
+      </div>
+      <div>
+        <h4>Approach</h4>
+        <p>The mark combines a bean silhouette with a single river line, a direct nod to "Kholaghar" (riverside house). A warm, food-safe palette carries across matte packaging, while a restrained two-typeface system keeps every touchpoint legible at small sizes.</p>
+      </div>
+      <div>
+        <h4>Outcome</h4>
+        <p>The system now covers bags, cartons, cups, stationery and a wholesale line sheet from one shared set of rules, cutting new-SKU design time from days to hours for the in-house team.</p>
+      </div>
+    </div>
+  </details>
+</article>
+<!--PROJECT-A1-->
+      <article class="project-card paper-panel" id="ux-ui">
+  <div class="project-top">
+    <span class="grid-ref">B2</span>
+    <span class="project-cat">UX / UI Design</span>
+  </div>
+  <h3>Yatra — Intercity Bus Booking App</h3>
+  <p class="project-sum">An end-to-end UX/UI project for booking intercity bus tickets in Nepal — route search, seat selection and e-ticketing designed to feel as simple as booking a flight.</p>
+  <ul class="meta-row">
+    <li><span>Role</span><b>Product Designer, UX/UI</b></li>
+    <li><span>Deliverables</span><b>User flows, wireframes, hi-fi UI kit</b></li>
+    <li><span>Year</span><b>2025</b></li>
+  </ul>
+
+  <div class="project-visual">
+    <div class="phone-row">
+      <div class="phone-frame">
+        <div class="phone-screen">
+          <div class="ph-topbar">YATRA</div>
+          <div class="ph-field">Kathmandu</div>
+          <div class="ph-field ph-field-alt">→ Pokhara</div>
+          <div class="ph-field ph-field-sm">Fri, 21 Nov · 1 seat</div>
+          <div class="ph-btn">Search buses</div>
+          <div class="ph-caption">Search</div>
+        </div>
+      </div>
+      <div class="phone-frame">
+        <div class="phone-screen">
+          <div class="ph-topbar">SELECT SEAT</div>
+          <div class="seat-grid">
+            <span class="seat"></span><span class="seat"></span><span class="seat booked"></span><span class="seat"></span>
+            <span class="seat"></span><span class="seat selected"></span><span class="seat"></span><span class="seat"></span>
+            <span class="seat"></span><span class="seat"></span><span class="seat"></span><span class="seat booked"></span>
+          </div>
+          <div class="ph-btn">Continue</div>
+          <div class="ph-caption">Seat select</div>
+        </div>
+      </div>
+      <div class="phone-frame">
+        <div class="phone-screen">
+          <div class="ph-topbar">E-TICKET</div>
+          <div class="ticket-stub">
+            <div class="ticket-route">KTM → PKR</div>
+            <div class="ticket-row"><span>Seat</span><b>6A</b></div>
+            <div class="ticket-row"><span>Date</span><b>21 Nov</b></div>
+            <div class="ticket-dash"></div>
+            <div class="qr-mock"></div>
+          </div>
+          <div class="ph-caption">Confirmation</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flow-diagram">
+      <span class="flow-step">Search route</span>
+      <span class="flow-arrow">→</span>
+      <span class="flow-step">Select seat</span>
+      <span class="flow-arrow">→</span>
+      <span class="flow-step">Pay</span>
+      <span class="flow-arrow">→</span>
+      <span class="flow-step">Get e‑ticket</span>
+    </div>
+  </div>
+
+  <details class="case-study">
+    <summary>View full case study</summary>
+    <div class="case-body">
+      <div>
+        <h4>Challenge</h4>
+        <p>Booking an intercity bus in Nepal usually means calling a counter or trusting a reseller with no seat map. Riders needed to see real seat availability and hold a ticket on their phone with no back-and-forth.</p>
+      </div>
+      <div>
+        <h4>Approach</h4>
+        <p>Wireframes cut the journey to three screens: search, seat map, ticket. A visual seat grid replaces a dropdown so availability is understood at a glance, and the confirmation screen doubles as an offline-readable ticket stub.</p>
+      </div>
+      <div>
+        <h4>Outcome</h4>
+        <p>Usability sessions with 8 riders showed a first booking completed in under 90 seconds, down from several minutes of back-and-forth on the counter-call flow it replaced.</p>
+      </div>
+    </div>
+  </details>
+</article>
+      <article class="project-card paper-panel" id="website-redesign">
+  <div class="project-top">
+    <span class="grid-ref">C3</span>
+    <span class="project-cat">Website Redesign</span>
+  </div>
+  <h3>Mahakavi Devkota Campus — Website Redesign</h3>
+  <p class="project-sum">A ground-up redesign of Simon's own alma mater's website — turning a cluttered, notice-board-style homepage into a clear, mobile-friendly front door for students and staff.</p>
+  <ul class="meta-row">
+    <li><span>Role</span><b>UI Designer / Front-end</b></li>
+    <li><span>Deliverables</span><b>IA, new UI, responsive build</b></li>
+    <li><span>Year</span><b>2024</b></li>
+  </ul>
+
+  <div class="project-visual">
+    <div class="compare-grid">
+      <div class="compare-panel">
+        <div class="compare-label">Before</div>
+        <div class="browser-chrome"><span></span><span></span><span></span></div>
+        <div class="mock-page mock-before">
+          <div class="mp-nav-before">HOME&nbsp;|&nbsp;NOTICE&nbsp;|&nbsp;ABOUT&nbsp;|&nbsp;FACULTY&nbsp;|&nbsp;RESULT&nbsp;|&nbsp;CONTACT&nbsp;|&nbsp;GALLERY</div>
+          <div class="mp-banner-before">MAHAKAVI DEVKOTA CAMPUS</div>
+          <div class="mp-block-before"></div>
+          <div class="mp-block-before"></div>
+          <div class="mp-block-before short"></div>
+        </div>
+      </div>
+      <div class="compare-panel">
+        <div class="compare-label">After</div>
+        <div class="browser-chrome"><span></span><span></span><span></span></div>
+        <div class="mock-page mock-after">
+          <div class="mp-nav-after"><span>MDC</span><span>Programs · Notices · Contact</span></div>
+          <div class="mp-hero-after">
+            <div class="mp-hero-line"></div>
+            <div class="mp-hero-line short"></div>
+            <div class="mp-hero-btn">View programs</div>
+          </div>
+          <div class="mp-cards-after">
+            <div class="mp-card-after"></div>
+            <div class="mp-card-after"></div>
+            <div class="mp-card-after"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <details class="case-study">
+    <summary>View full case study</summary>
+    <div class="case-body">
+      <div>
+        <h4>Challenge</h4>
+        <p>The old site buried admissions info, notices and faculty contacts behind a wall of top navigation links and dense text blocks, and broke completely on mobile, where most students actually visited from.</p>
+      </div>
+      <div>
+        <h4>Approach</h4>
+        <p>A content audit cut the navigation from eleven items to four. Notices moved to a dedicated feed instead of the homepage, and a single clear hero replaced the old text banner, with a mobile-first grid underneath everything.</p>
+      </div>
+      <div>
+        <h4>Outcome</h4>
+        <p>The redesigned homepage loads in a fraction of the old page weight, and the new notice feed gives staff a way to publish updates without touching page layout.</p>
+      </div>
+    </div>
+  </details>
+</article>
+      <article class="project-card paper-panel" id="motion-graphics">
+  <div class="project-top">
+    <span class="grid-ref">D4</span>
+    <span class="project-cat">Motion Graphics</span>
+  </div>
+  <h3>Kholaghar — Logo Reveal &amp; Promo Motion</h3>
+  <p class="project-sum">A looping logo-reveal animation and a six-frame storyboard for a short social promo, extending the Kholaghar brand system (project A1) into motion for reels and in-store screens.</p>
+  <ul class="meta-row">
+    <li><span>Role</span><b>Motion Designer</b></li>
+    <li><span>Deliverables</span><b>Logo animation, storyboard, social cutdown</b></li>
+    <li><span>Year</span><b>2025</b></li>
+  </ul>
+
+  <div class="project-visual">
+    <div class="motion-demo">
+      <svg viewBox="0 0 120 120" width="110" height="110">
+        <circle class="mo-ring" cx="60" cy="60" r="50" fill="none" stroke="#B08463" stroke-width="1.4"/>
+        <path class="mo-bean" d="M60 16 C86 30 92 60 78 84 C70 98 50 98 42 84 C28 60 34 30 60 16 Z" fill="none" stroke="#F1E7DA" stroke-width="2.6"/>
+        <path class="mo-river" d="M32 60 C46 52 74 68 88 60" fill="none" stroke="#7C8B6F" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <span class="mo-word">KHOLAGHAR</span>
+      <span class="tile-label" style="margin-top:10px;">Looping logo reveal — live CSS/SVG demo</span>
+    </div>
+
+    <div class="storyboard-grid">
+      <div class="frame"><span class="frame-num">01</span><div class="frame-art fa-1"></div><p>Fade up on dark, ring appears</p></div>
+      <div class="frame"><span class="frame-num">02</span><div class="frame-art fa-2"></div><p>Mark draws itself, line by line</p></div>
+      <div class="frame"><span class="frame-num">03</span><div class="frame-art fa-3"></div><p>Wordmark types in below mark</p></div>
+      <div class="frame"><span class="frame-num">04</span><div class="frame-art fa-4"></div><p>Brand palette washes across frame</p></div>
+      <div class="frame"><span class="frame-num">05</span><div class="frame-art fa-5"></div><p>Cut to packaging, marigold flash</p></div>
+      <div class="frame"><span class="frame-num">06</span><div class="frame-art fa-6"></div><p>End card — tagline &amp; lockup hold</p></div>
+    </div>
+  </div>
+
+  <details class="case-study">
+    <summary>View full case study</summary>
+    <div class="case-body">
+      <div>
+        <h4>Challenge</h4>
+        <p>Kholaghar needed a short, sound-optional sting that worked as a reel intro, an in-store loop, and a seasonal promo teaser, without commissioning a separate animation for each.</p>
+      </div>
+      <div>
+        <h4>Approach</h4>
+        <p>The line-drawn mark from the brand system became the animation's structural device: it draws itself in, fills with the brand palette, then hands off to a product shot. The same six-beat storyboard was cut to 3s, 6s and 15s versions.</p>
+      </div>
+      <div>
+        <h4>Outcome</h4>
+        <p>One storyboard produced three timed edits reused across Instagram, in-store screens and a Dashain promo push, keeping every touchpoint visually identical to the brand system.</p>
+      </div>
+    </div>
+  </details>
+</article>
+      <article class="project-card paper-panel" id="digital-product">
+  <div class="project-top">
+    <span class="grid-ref">E5</span>
+    <span class="project-cat">Digital Product</span>
+  </div>
+  <h3>Paisa — Everyday Budgeting App</h3>
+  <p class="project-sum">A design system and dashboard for a budgeting app built for young Nepalis managing money across cash, e-wallets and bank accounts — one clear view of where money goes each month.</p>
+  <ul class="meta-row">
+    <li><span>Role</span><b>Product Designer</b></li>
+    <li><span>Deliverables</span><b>Design system, dashboard UI, data viz</b></li>
+    <li><span>Year</span><b>2026</b></li>
+  </ul>
+
+  <div class="project-visual">
+    <div class="dash-mock">
+      <div class="dash-col dash-col-wide">
+        <div class="dash-card">
+          <span class="tile-label">Monthly spend, last 6 weeks</span>
+          <svg viewBox="0 0 200 84" class="bar-chart" preserveAspectRatio="none">
+            <rect x="6"  y="34" width="20" height="50" rx="3"/>
+            <rect x="36" y="18" width="20" height="66" rx="3"/>
+            <rect x="66" y="46" width="20" height="38" rx="3"/>
+            <rect x="96" y="10" width="20" height="74" rx="3" class="bar-hi"/>
+            <rect x="126" y="40" width="20" height="44" rx="3"/>
+            <rect x="156" y="26" width="20" height="58" rx="3"/>
+          </svg>
+        </div>
+        <div class="dash-card">
+          <span class="tile-label">Budget progress</span>
+          <div class="progress-row"><span>Food</span><div class="progress-track"><div class="progress-fill" style="width:72%"></div></div><em>72%</em></div>
+          <div class="progress-row"><span>Transport</span><div class="progress-track"><div class="progress-fill" style="width:45%"></div></div><em>45%</em></div>
+          <div class="progress-row"><span>Rent</span><div class="progress-track"><div class="progress-fill over" style="width:96%"></div></div><em>96%</em></div>
+          <div class="progress-row"><span>Savings</span><div class="progress-track"><div class="progress-fill good" style="width:30%"></div></div><em>30%</em></div>
+        </div>
+      </div>
+      <div class="dash-col">
+        <div class="dash-card dash-donut-card">
+          <span class="tile-label">By category</span>
+          <svg viewBox="0 0 42 42" class="donut">
+            <circle class="donut-ring" cx="21" cy="21" r="15.9155" fill="none" stroke="rgba(238,240,234,0.08)" stroke-width="4"/>
+            <circle cx="21" cy="21" r="15.9155" fill="none" stroke="var(--marigold)" stroke-width="4" stroke-dasharray="38 62" stroke-dashoffset="25" transform="rotate(-90 21 21)"/>
+            <circle cx="21" cy="21" r="15.9155" fill="none" stroke="var(--indigo)" stroke-width="4" stroke-dasharray="22 78" stroke-dashoffset="-13" transform="rotate(-90 21 21)"/>
+            <circle cx="21" cy="21" r="15.9155" fill="none" stroke="#7C8B6F" stroke-width="4" stroke-dasharray="25 75" stroke-dashoffset="-35" transform="rotate(-90 21 21)"/>
+            <circle cx="21" cy="21" r="15.9155" fill="none" stroke="#B08463" stroke-width="4" stroke-dasharray="15 85" stroke-dashoffset="-60" transform="rotate(-90 21 21)"/>
+          </svg>
+          <ul class="legend">
+            <li><span style="background:var(--marigold)"></span>Food 38%</li>
+            <li><span style="background:var(--indigo)"></span>Rent 22%</li>
+            <li><span style="background:#7C8B6F"></span>Transport 25%</li>
+            <li><span style="background:#B08463"></span>Other 15%</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <details class="case-study">
+    <summary>View full case study</summary>
+    <div class="case-body">
+      <div>
+        <h4>Challenge</h4>
+        <p>Most budgeting apps assume a single bank account. Paisa's users pay with cash, mobile wallets and cards in the same week, and needed one honest picture of spend without manually categorising every entry.</p>
+      </div>
+      <div>
+        <h4>Approach</h4>
+        <p>A compact design system (spacing scale, chart components, category colours) powers a dashboard that leads with the number that matters, this week's spend against budget, with category and trend views one tap away, not the default screen.</p>
+      </div>
+      <div>
+        <h4>Outcome</h4>
+        <p>The component library cut new-screen design time significantly for the two-person product team, and the budget-progress pattern shown here shipped as the app's most-used screen in early testing.</p>
+      </div>
+    </div>
+  </details>
+</article>
+    </div>
+  </div>
+</section>
+<section id="skills">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Capabilities</span>
+      <h2>One practice, four disciplines.</h2>
+      <p>Skills organised the way projects actually get built — brand decisions feeding into interface, interface into motion, motion back into product.</p>
+    </div>
+    <div class="skills-grid">
+      <div class="paper-panel skill-col">
+        <span class="grid-ref">BR</span>
+        <h3>Brand</h3>
+        <ul>
+          <li>Identity systems &amp; logo design</li>
+          <li>Typography systems</li>
+          <li>Print &amp; packaging</li>
+          <li>Brand guidelines</li>
+        </ul>
+      </div>
+      <div class="paper-panel skill-col">
+        <span class="grid-ref">UX</span>
+        <h3>UI / UX</h3>
+        <ul>
+          <li>Wireframing &amp; prototyping</li>
+          <li>Design systems</li>
+          <li>Usability testing</li>
+          <li>Responsive web design</li>
+        </ul>
+      </div>
+      <div class="paper-panel skill-col">
+        <span class="grid-ref">MO</span>
+        <h3>Motion</h3>
+        <ul>
+          <li>Logo &amp; UI animation</li>
+          <li>Micro-interactions</li>
+          <li>Storyboarding</li>
+          <li>Short-form video edits</li>
+        </ul>
+      </div>
+      <div class="paper-panel skill-col">
+        <span class="grid-ref">PD</span>
+        <h3>Product</h3>
+        <ul>
+          <li>Component libraries</li>
+          <li>Design-to-dev handoff</li>
+          <li>Cross-platform UI</li>
+          <li>Data visualisation</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tools-row">
+      <span class="tools-label">Tools</span>
+      <ul class="tools-pills">
+        <li>Figma</li><li>Adobe Illustrator</li><li>Photoshop</li><li>After Effects</li><li>Framer</li><li>Premiere Pro</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<section id="contact">
+  <div class="wrap">
+    <div class="paper-panel contact-panel">
+      <span class="grid-ref">Say hello</span>
+      <h2>Let's build the next<br>system together.</h2>
+      <p>Available for select freelance and full-time design roles across brand, product and motion.</p>
+      <div class="contact-actions">
+        <a href="mailto:simon.gurung.design@gmail.com" class="btn btn-primary">Email Simon →</a>
+        <span class="contact-email">simongurung984@gmail.com</span>
+      </div>
+      <ul class="social-row">
+        <li><span>LinkedIn</span></li>
+        <li><span>Behance</span></li>
+        <li><span>Instagram</span></li>
+      </ul>
+      <p class="contact-note">Swap the email above and add your real social links before you start sharing this portfolio.</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <span>© <span id="year">2026</span> Simon Gurung. All rights reserved.</span>
+    <a href="#top" class="footer-top">Back to top ↑</a>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var toggle = document.getElementById('navToggle');
+  var links = document.getElementById('navLinks');
+  if(toggle && links){
+    toggle.addEventListener('click', function(){
+      var isOpen = links.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+    links.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){
+        links.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+  var yearEl = document.getElementById('year');
+  if(yearEl){ yearEl.textContent = new Date().getFullYear(); }
+})();
+</script>
+</body>
+</html>
